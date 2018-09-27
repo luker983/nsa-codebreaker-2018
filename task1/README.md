@@ -2,10 +2,10 @@
 
 We need 4 different values for this task:
 
-    1. Unique Victim Identifier
-    2. Encrypted Ransom Key
-    3. One-time Passcode (OTP)
-    4. Escrow Contract Address
+1. Unique Victim Identifier
+2. Encrypted Ransom Key
+3. One-time Passcode (OTP)
+4. Escrow Contract Address
 
 Values 1 and 4 are the easiest, so let's start with those. The victim ID is given in the ransom file:
 ```
