@@ -94,4 +94,13 @@ This is a lot more data to take in, but again, we see that the Victim ID is in t
 All of the data past the Vicitim ID is a good candidate for the Encrypted Key and OTP. If you look through all frames 
 with data, including the frames from the LP, you may notice that one of them contains the Escrow Address after the 66th byte.
 This is consistent with the pattern in previous frames and suggests that the first 66 bytes or so contain header info. So if we 
-guess that the rest of the data in frame 4 contains our answers, how do we figure out how to separate them? 
+guess that the rest of the data in frame 4 contains our answers, how do we figure out how to separate them? [Wikipedia](https://en.wikipedia.org/wiki/Time-based_One-time_Password_algorithm)
+has an article about time-based OTP values and says the default length of the token is 6. Now we have 2 options: the last 6 
+characters or the first 6 characters after the Victim ID. I tried the first 6 and got lucky:
+```
+126664
+``` 
+The rest of the data is the Encrypted Key:
+```
+0x3a772814e9a03b29c5c4e17ee81efcff3d3f1e654e08a75984680026b1b6b3b87ee8535901a90422ee127614dc2f4202c15706fd721163a8ba0519df6a38d749daf39bff460e0313848c1377e329a3fdf21cf8c4bf36bcd0f5f8209fd6bb1012e5a1ee9df6c5e46f405539435ab66bfa237ba5486aae488f0cc93174e04256177f2f10911b10f4a69ebc02b6586e4255faf684056aadfbd7a7d20f9630e5fb145bf6182b0b3366d50ae871b7c8d9fed389101eb71b198b9e83dabb25e06ebebfa613c44f4e9053b609366ab67e9bacecb80717cb009b3c4955f05c37a6f484951fbdacadf15f842684034b9a43a9e70d70f9d4214193dc9a098ec8744920ae87
+```   
