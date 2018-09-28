@@ -4,7 +4,7 @@ and to show how to solve the puzzles.
 
 ### Task Progress
 - [x] Task 0
-- [ ] Task 1
+- [x] Task 1
 - [x] Task 2
 - [ ] Task 3
 - [ ] Task 4
