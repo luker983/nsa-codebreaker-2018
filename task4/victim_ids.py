@@ -37,13 +37,13 @@ def main():
         # Load contracts
         Ransom = load_contract(w3, os.path.join(PATH,'Ransom.json'))
         Escrow = load_contract(w3, os.path.join(PATH, 'Escrow.json'))            
-        escrow_contract = Escrow(address=("0x0bb8D9a961cF6789244130f6C4f922C414Fde651"))
+        escrow_contract = Escrow(address=(ESCROW_ADDRESS))
 
         ransom_address = [] 
         victim_id = []
         fulfilled = []
 
-        # Get all ransom address that escrow is in charge of
+        # Get all ransom addresses that the escrow is in charge of
         for x in range(0, 10): 
             pos = str(9).rjust(64, '0')
             storage_key = hex(int(to_hex(w3.sha3(hexstr=pos)),16) + x)
@@ -54,7 +54,6 @@ def main():
         for x in range(0, 10):
             pos = str(6).rjust(64, '0')
             key = remove_0x_prefix(ransom_address[x]).rjust(64, "0").lower() 
-            storage_key = to_hex(w3.sha3(hexstr=key + pos))
             storage_key = to_hex(w3.sha3(hexstr=key + pos))
             victim_id.append(w3.toHex(w3.eth.getStorageAt(escrow_contract.address, storage_key))) 
             #print("Victim ID {0}".format(x), victim_id[x])
