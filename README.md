@@ -6,7 +6,7 @@ and to show how to solve the puzzles.
 - [x] Task 0
 - [x] Task 1
 - [x] Task 2
-- [ ] Task 3
+- [x] Task 3
 - [x] Task 4
 - [ ] Task 5
 - [ ] Task 6
