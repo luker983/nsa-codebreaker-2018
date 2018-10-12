@@ -32,8 +32,8 @@ track.
 
 Let's see what the rest of the parameters for the call need. The second and third arguments
 are the key and key length, the fourth and fifth arguments are the data and data length. If 
-we can figure out what is being used for the key and data, then we can use tha information
-to construct our own HMAC call and get the Victim ID for information provided. Using x86 
+we can figure out what is being used for the key and data, then we can use that information
+to construct our own HMAC call and get the Victim ID from the information provided. Using x86 
 calling conventions, we can construct a table of the values and registers being passed to
 the function:
 
@@ -46,3 +46,38 @@ Register| Argument  | Value
 %r8     |data length|?
 %r9     |output     |?
 push    |output length|?
+
+Now we need to go backwards and figure out where these values come from. Starting with the
+first register, `%rdi`, it's value is copied over from `%rax`. This is the register that
+functions place return values in, so this must be from the `EVP_sha256` call. Register `%r8`
+is another easy one, it's value is the constant `0xa`. The key, key length, and data are a 
+little trickier to find. The key can be traced back to a call to `base32_decode` that decodes
+the OTP key. The data appears to have a starting address that matches where the return from a
+function called `gia` is stored. Knowing this needs to be 10 bytes, we can look at where the
+value is stored and take those bytes. Function names have been pretty insightful, so `gia` could
+mean something like Get IP Address. IP addresses are 4 bytes, so that leaves 6 bytes to go. We
+happen to know a 6 byte value: the OTP! Let's update our table with this new information: 
+
+Register| Argument  | Value
+--------|-----------|-------
+%rdi    |EVP_MD     |EVP_sha256() 
+%rsi    |key        |Base 32 decoded OTP key
+%rdx    |key length |?
+%rcx    |data       |IP address + OTP value
+%r8     |data length|0xa (10)
+%r9     |output     |?
+push    |output length|?
+
+With this info we should be able to create our own Victim IDs. I tried it on my own to make
+sure it would work before trying it on the victim information provided. The `victim_id.sh` script
+automates the solution for a given IP, OTP, and Key. First, the IP and OTP need to be converted
+to hex, concatenated, and then converted to bytes. Second, the OTP key needs to be converted to
+bytes. Finally, the `openssl` command can be used to generate the 256 bit hash:
+```
+echo -n "$DATA" | openssl sha256 -hmac $KEY
+```
+If this value matches with your Victim ID, try it using the victim information provided. My solution
+was the following:
+```
+0xefba1a70d62d18bb333b02191df440d0b2c265879b31155f2d98e129fca4ac12
+```
