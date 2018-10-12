@@ -1,0 +1,34 @@
+A JSON RPC service is available for you to connect to using standard "web3" tools.  Please do not try to hack this service.
+Note, it is only available using an HTTP connection, *not* WebSockets.  Other useful information for using the network is below.
+
+-------------
+URL:  https://codebreaker.ltsnet.net/eth/cbfc0f5b81532097/1613c2a28bbc597ad0f0361330c810986838cfbd14d450131f3d61c5fab8c65f
+Typical Gas Price: 22 GWei
+Blocks Mined every 5 seconds (average)
+
+Your account address: 0x13495A46D4de87020753e3178462044672513e7a
+(See other downloads for keystore/password)
+-------------
+
+To test your connectivity, you can try the following example adapted from: https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_blocknumber
+
+You should see a working response with an increasing block number (result) after a few seconds.
+
+Take note of the explicit "Content-Type" header being passed to curl.  This is
+required for Parity Ethereum, but not all Ethereum clients so you may find it missing from other examples.
+See the Parity JSON RPC API Wiki for more: https://wiki.parity.io/JSONRPC
+
+# Request
+export URL=https://codebreaker.ltsnet.net/eth/cbfc0f5b81532097/1613c2a28bbc597ad0f0361330c810986838cfbd14d450131f3d61c5fab8c65f
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}' -H "Content-Type: application/json" $URL
+
+# Example Result (it wont match exactly)
+{
+  "id":1,
+  "jsonrpc": "2.0",
+  "result": "0x32c8" # ie. 13000, try again later and see a higher value
+}
+
+One last note.  Remember, every account on our network also exists on every other Ethereum network.
+You should definitely *not* reuse the same accounts on different networks without being very careful.
+
