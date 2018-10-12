@@ -33,4 +33,16 @@ track.
 Let's see what the rest of the parameters for the call need. The second and third arguments
 are the key and key length, the fourth and fifth arguments are the data and data length. If 
 we can figure out what is being used for the key and data, then we can use tha information
-to construct our own HMAC call and get the Victim ID for information provided.
+to construct our own HMAC call and get the Victim ID for information provided. Using x86 
+calling conventions, we can construct a table of the values and registers being passed to
+the function:
+
+Register| Argument  | Value
+--------|-----------|-------
+%rdi    |EVP_MD     |?  
+%rsi    |key        |?
+%rdx    |key length |?
+%rcx    |data       |?
+%r8     |data length|?
+%r9     |output     |?
+push    |output length|?
