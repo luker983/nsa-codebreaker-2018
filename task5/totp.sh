@@ -1,0 +1,7 @@
+#!/bin/bash
+
+KEY=CAPAFK2UHNGE22OCIG6KAWHQ2GFZCQZV
+DIGITS=6
+TIME='2018-08-13 10:29:36 GMT'
+
+oathtool --totp -b $KEY -d 6 -N "$TIME"
