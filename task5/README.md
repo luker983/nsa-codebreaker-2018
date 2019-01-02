@@ -37,4 +37,6 @@ Just a tip: it's a good idea to output the code for getting logs and addresses
 into text files because it can take a long time to retrieve data from the
 blockchain.
 
+Now that we have the OTP values, we can start brute forcing!
+
 

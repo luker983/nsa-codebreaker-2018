@@ -68,10 +68,8 @@ def main():
                 fulfilled.append(victim_id[x])
             #print(result)
  
-        print("\nVictim IDs:")
         for victim in victim_id:
             print(victim)
-        print()
 
     except requests.exceptions.HTTPError as http_err:
         LOG.error("web3 connection failure: {0}".format(http_err))
