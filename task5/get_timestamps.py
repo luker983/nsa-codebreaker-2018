@@ -1,6 +1,7 @@
 import os
 import sys
 import web3 
+import datetime
 from web3 import Web3
 import logging
 import json
@@ -60,8 +61,8 @@ def main():
 
         for t in transactions:
             rec = w3.eth.getTransactionReceipt(t['transactionHash'].hex()) 
-            time = w3.eth.getBlock(rec['blockNumber'])['timestamp']
-            print(time)
+            timestamp = w3.eth.getBlock(rec['blockNumber'])['timestamp']
+            print(datetime.datetime.fromtimestamp(timestamp - 30).strftime('%c'))
 
     except requests.exceptions.HTTPError as http_err:
         LOG.error("web3 connection failure: {0}".format(http_err))
