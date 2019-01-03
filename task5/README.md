@@ -37,6 +37,16 @@ Just a tip: it's a good idea to output the code for getting logs and addresses
 into text files because it can take a long time to retrieve data from the
 blockchain.
 
-Now that we have the OTP values, we can start brute forcing!
+Using these event logs, we can look up the transaction hashes to get a block number,
+then look up the block number to get a timestamp, and now we have all the pieces we
+need to brute force!
+
+1. Convert timestamps to a usable GMT timestamp for oathtool
+2. Create OTP codes
+3. Try every possible IP in the valid range and compare with the victim IDs
+
+NOTE: The infection time may be a few seconds off from the timestamp in the block
+metadata. Mess around and offset the time by 30 seconds or so if you aren't getting
+the expected results.
 
 
