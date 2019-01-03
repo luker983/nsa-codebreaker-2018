@@ -2,6 +2,7 @@
 
 # convert IP address to hex
 IP=10.114.118.118
+IP=$1
 IPHEX="$(printf '%02x' ${IP//./ })" 
 
 # convert OTP to hex
@@ -11,6 +12,7 @@ IPHEX="$(printf '%02x' ${IP//./ })"
 
 # convert OTP to hex
 OTP=513636
+OTP=$2
 OTPHEX="$(echo -n $OTP | xxd -ps -c 200 | tr -d '\n')"
 
 # concatenate and form data string
