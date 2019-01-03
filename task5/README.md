@@ -49,4 +49,9 @@ NOTE: The infection time may be a few seconds off from the timestamp in the bloc
 metadata. Mess around and offset the time by 30 seconds or so if you aren't getting
 the expected results.
 
-
+After brute-forcing with `brute_force.py`, I found three infected hosts:
+```
+OTP = 967536 IP = 10.118.123.130 Result = 7fed6e76fa707346979f5859920fcac6b08fc90c7adb6cb13b817bc5fe6f7ae3
+OTP = 126664 IP = 10.118.141.33 Result = b05d1d5c69459b0ef424a213f1c11d0afd53d070df8b69ac041584c3af9dba8c
+OTP = 307287 IP = 10.118.188.43 Result = 7b0225bd094030c42b79a5596529830c7bea70f5d4a144e0a70768d08ef42341
+```
