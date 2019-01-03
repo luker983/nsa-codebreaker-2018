@@ -62,7 +62,8 @@ def main():
         for t in transactions:
             rec = w3.eth.getTransactionReceipt(t['transactionHash'].hex()) 
             timestamp = w3.eth.getBlock(rec['blockNumber'])['timestamp']
-            print(datetime.datetime.utcfromtimestamp(timestamp), "GMT")
+            for x in range(0, 60):
+                print(datetime.datetime.utcfromtimestamp(timestamp - x), "GMT")
  
     except requests.exceptions.HTTPError as http_err:
         LOG.error("web3 connection failure: {0}".format(http_err))

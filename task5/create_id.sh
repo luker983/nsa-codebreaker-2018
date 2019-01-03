@@ -17,6 +17,7 @@ OTPHEX="$(echo -n $OTP | xxd -ps -c 200 | tr -d '\n')"
 
 # concatenate and form data string
 HEXDATA="$(echo -n $IPHEX$OTPHEX)"
+echo "$HEXDATA"
 
 # base32 key in hex
 HEXKEY=101E02AB543B4C4D69C241BCA058F0D18B914335
@@ -25,5 +26,6 @@ HEXKEY=101E02AB543B4C4D69C241BCA058F0D18B914335
 DATA=$(echo -n $HEXDATA | xxd -r -p)
 KEY=$(echo -n $HEXKEY | xxd -r -p)
 
+echo "$DATA" 
 # generate hash
 echo -n "$DATA" | openssl sha256 -hmac $KEY

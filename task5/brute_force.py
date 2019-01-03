@@ -13,7 +13,6 @@ with open('otp.txt') as otps:
     for otp in otps:
         for ip in ipaddress.IPv4Network('10.118.0.0/16'):
             data = str(socket.inet_aton(str(ip)).hex()) + otp.strip().encode('utf-8').hex()
-            print(data)
             data = bytearray.fromhex(data)
             hash = hmac.new(key, data, hashlib.sha256).hexdigest()
             print("OTP =", otp.strip(), "IP =", ip, "Result =", hash)
