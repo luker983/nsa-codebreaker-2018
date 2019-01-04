@@ -60,3 +60,7 @@ Once the Escrow contract has given up all of its funds to our Ransom contract,
 we call the die() function and should see all of those funds in our account.
 Refunding the paid victims is scriptable, but since there were only 3 I manually
 sent each of the victims their 100 ether to complete the task.
+
+That's it for the Codebreaker Challenge! Everyone in our Escrow contract has their 
+money back and we can distribute the knowledge needed for unpaid victims to recover
+their keys. 
