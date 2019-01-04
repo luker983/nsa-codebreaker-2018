@@ -1,6 +1,8 @@
 # NSA Codebreaker Challenge 2018 Write-Up
-This is a write-up to keep track of my progress through the challenge
-and to show how to solve the puzzles.
+This is a walkthrough of the challenges in the 2018 NSA Codebreaker Challenge.
+It's far from comprehensive and my solutions were definitely not the most 
+efficient, so if you have any questions please feel free to email me at 
+lukerindels98@hotmail.com.
 
 ### Task Progress
 - [x] Task 0
@@ -10,4 +12,4 @@ and to show how to solve the puzzles.
 - [x] Task 4
 - [x] Task 5
 - [x] Task 6
-- [ ] Task 7
+- [x] Task 7
