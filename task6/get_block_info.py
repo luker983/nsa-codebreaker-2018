@@ -48,8 +48,8 @@ def main():
             pos = str(9).rjust(64, '0')
             storage_key = hex(int(to_hex(w3.sha3(hexstr=pos)),16) + x)
             ransom_address.append(w3.toHex(w3.eth.getStorageAt(escrow_contract.address, storage_key)))
-            #print("Ransom Address {0}".format(x), ransom_address[x])
-
+            print("Ransom Address {0}".format(x), ransom_address[x])
+        '''
         # Get victim IDs from the ransom addresses
         for x in range(0, 10):
             pos = str(6).rjust(64, '0')
@@ -67,22 +67,10 @@ def main():
             if result == True:
                 fulfilled.append(victim_id[x])
             #print(result)
-
-        # Get Registry Address
-        for x in range(0, 10):
-            print(w3.toHex(w3.eth.getStorageAt(escrow_contract.address, x)))
  
-        # Paid Victims
-        print("\nVictims that paid:")
-        for paid in fulfilled:
-            print(paid)
-            victim_id.remove(paid)
-        # Unpaid Victims
-        print("\nVictims that have not yet paid:")
         for victim in victim_id:
             print(victim)
-        print()
-
+        '''
     except requests.exceptions.HTTPError as http_err:
         LOG.error("web3 connection failure: {0}".format(http_err))
         return 2

