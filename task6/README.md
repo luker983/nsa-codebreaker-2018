@@ -42,3 +42,9 @@ To confirm that the deployment worked, isAuthenticated should return true after 
 4. Pay the ransom with 0 value and input the encrypted file in an escaped format so it's accepted by the interpreter.
 
 5. After a few seconds, the getDecryptionKey should work!
+
+My solutions looked like this:
+```
+Decryption Key: 0x14b157c3144a86a6398d73cff408e20d2bbd542ec18870b0b91d9265ef3bfbb1
+payRansom Tx Hash: 0xe37091772d9146df4534ca7f09f5f24eb47cfa8f6fafd9433261e84231b814f3
+```
