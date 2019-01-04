@@ -66,7 +66,7 @@ for x in range(0, 10):
     print(result)
 ```
 
-The final solution (NOTE: task 4 explicitly states not to include your personal victim ID):
+The final solution:
 ```
 Victims that paid:
 0x451e2b86cf2edf6fe8cd12ec652e6822c30c823ca000c490467e040b59be8683
