@@ -1,5 +1,8 @@
-# Task 2
+# Task 2 - Secrets
+## Prompt
+The OTP value identified in Task 1 is used to authenticate the victim with the attacker's LP. Since OTP values are only valid for a narrow window of time, we can deduce that the ransomware must be generating the OTP value during the infection process and therefore the secret key must exist in the ransomware binaries. While we don't have the initial infection logic (it was self-deleted), we think the key is still resident in one of the shared libraries that we do have. Your task is to analyze the ransomware binaries and recover the secret key used to generate OTP values.
 
+## Solution
 To make the binaries a little easier to look at, we're going to disassemble them:
 ```
 objdump --disassemble libclient_crypt.so > libclient_crypt.s

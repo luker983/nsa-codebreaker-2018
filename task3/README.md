@@ -1,5 +1,11 @@
-# Task 3
+# Task 3 - Connections
+## Prompt
+The Victim ID value identified in Task 1 is presumed to be unique per host. Depending on what information is used to generate the identifier and how it is computed, it may be possible to reverse the process and glean information about a victim from the identifier alone. This could help pinpoint infected hosts on a network and assist in remediation efforts. The goal of this task is to reverse-engineer how the unique Victim IDs are computed by the ransomware.
 
+
+To prove your solution, compute the ID for a victim with information found in the victim_information.txt file attached below.
+
+## Solution 
 Once all of the task files are downloaded, decompile the binaries using `objdump -d`.
 Our goal is to find out how the Victim IDs are being generated. Look through the function
 names of both libraries for something that might be generated a unique ID. The most

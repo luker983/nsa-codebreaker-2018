@@ -4,6 +4,12 @@ Whenever the ransomware infects a new victim, it calls out to the attacker LP wi
 
 
 The ransomware removes itself from victim computers after completing infection and registration processes. Therefore, a complete ransomware executable hasn't yet been found. The only binaries it leaves behind are two shared libraries - libclient_comms.so and libclient_crypt.so. It's unclear if leaving these binaries on disk is an oversight or intentional. Your task is to analyze the ransomware client-registration communications protocol and submit the information requested below. To assist you, we have provided the two above-mentioned shared library binaries and a packet capture (pcap) file showing registration-related network traffic between victim computer and attacker LP. The library binaries were taken from the same victim computer shown in the pcap.
+Please submit the following:
+
+Victim Identifier
+Encrypted Ransom Key
+One-Time Passcode (OTP) used to authenticate the client to the ransomware LP
+Escrow contract address
 
 ## Solution
 
