@@ -1,5 +1,9 @@
-# Task 1
-## 
+# Task 1 - It Begins
+## Prompt 
+Whenever the ransomware infects a new victim, it calls out to the attacker LP with (1) a unique victim identifier, (2) encrypted copy of the key used to ransom victim files, and (3) a one-time passcode (OTP) used for authentication. The LP, in turn, connects to an Ethereum client and deploys a Ransom "smart" contract on the Ethereum blockchain that authenticates with other parts of the attacker's infrastructure. After authentication, the LP returns back to the ransomware (running on victim computer) information describing where the victim should send funds. Ransom payment is made to an Escrow contract, so the LP responds with the Escrow contract's blockchain address, a 20-byte value derived from a private key that corresponds to a unique account/contract on the blockchain. Ransom and Escrow smart contracts and attacker infrastructure will be explained more fully in subsequent tasks.
+
+
+The ransomware removes itself from victim computers after completing infection and registration processes. Therefore, a complete ransomware executable hasn't yet been found. The only binaries it leaves behind are two shared libraries - libclient_comms.so and libclient_crypt.so. It's unclear if leaving these binaries on disk is an oversight or intentional. Your task is to analyze the ransomware client-registration communications protocol and submit the information requested below. To assist you, we have provided the two above-mentioned shared library binaries and a packet capture (pcap) file showing registration-related network traffic between victim computer and attacker LP. The library binaries were taken from the same victim computer shown in the pcap.
 
 ## Solution
 
