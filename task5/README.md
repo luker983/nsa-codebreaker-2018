@@ -1,5 +1,12 @@
-# Task 5
+# Task 5 - Containment
 
+## Prompt
+Based on what we learned from tasks 3 and 4, our analysts have determined that it should be possible to discover whether hosts on a particular network segment have been infected by the ransomware. Information about the network in question can be found in the network_information.txt file below. If you have not already solved tasks 3 and 4, it is recommended to go back and complete them before attempting this task.
+
+
+Enter the IP address(es) of any infected host(s) on the network:
+
+## Solution
 From Task 3 we learned how to generate a victim ID using an IP address and an 
 OTP value. From Task 4 we got every victim ID associated with our Escrow 
 address. Now we need to use that info to find out what IP addresses have been 

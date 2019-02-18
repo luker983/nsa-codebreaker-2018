@@ -1,5 +1,14 @@
-# Task 4
+# Task 4 - Victims
 
+## Prompt
+The Escrow contract maintains multiple internal mappings that are indexed on victim ID. From these mappings there is much that can be discovered about each victim. For this task, you will need to analyze the internal state of the Escrow contract to enumerate the set of victims that have been infected by the ransomware and distinguish between those that have and have not paid.
+
+For more information about how to interact with the Codebreaker Challenge blockchain, check out the resources page.
+
+
+IMPORTANT - remember to include the victim ID associated with your account.
+
+## Solution
 In this task we get to start interacting with the Codebreaker blockchain. The goal is to get the victim IDs of every 
 other victim associated with our Escrow contract as well as whether or not they have paid. First things first, 
 download all of the task files. The .sol files are source code for the 3 different smart contracts. The ransom_note.txt 

@@ -1,5 +1,14 @@
-# Task 6
+# Task 6 - Loophole
 
+## Prompt
+The attacker may think he has the upper hand, but perhaps we can have the last laugh and recover the decryption key without spending any ether (beyond transaction costs...). For this task you will need to study the provided source code to the Ransom and Escrow contracts and find a way to exploit the logic such that the contract thinks you have paid and provides the decryption key.
+
+
+In addition to verifying the decryption key you obtained is correct, we will check your balance did not change (other than transaction costs). To do this, we will need the transaction hash for the transaction you sent that ultimately caused a DecryptEvent to be emitted. Once you've sent your transaction, don't spend any additional ether until after the transaction where the decryption key is provided in the DecryptCallbackEvent. Make sure you submit a transaction that was sent from your account.
+
+For more information about how to interact with the Codebreaker Challenge blockchain, check out the resources page.
+
+## Solution
 This task requires us to find a loophole in the Smart Contract code that 
 will allow us to gain the decryption key!
 

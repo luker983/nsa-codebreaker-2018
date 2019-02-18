@@ -1,5 +1,16 @@
-# Task 7
+# Task 7 - Refunds
 
+## Prompt
+In Task 6 you figured out how to recover the decryption key without actually paying the ransom. But as you discovered in Task 4, there are victims that have already paid the ransom to the attacker. For this task, you need to:
+
+1. Figure out a way to recover all of the funds paid into the Escrow contract
+2. Transfer the amount paid by each victim back into their account.
+
+After you've returned the victims' money, submit the address of the Escrow contract you exploited. The Escrow address should be the same one that you were originally given.
+
+For more information about how to interact with the Codebreaker Challenge blockchain, check out the resources page.
+
+## Solution
 Now we can restore our system without paying, but it's time to refund
 everyone who did pay. Looking at the Escrow contract, we can see that there
 are three methods that are used to send ether:
